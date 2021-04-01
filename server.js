@@ -42,7 +42,7 @@ true })
   app.put('/todos', (request, response) => {
     todosCollection.updateOne({todos: request.body.todosX}, {
       $set: {
-        todos: request.body.todosX + 'completed'
+        todos: request.body.todosX + "\u2713"
       }
     })
     .then(result => {
