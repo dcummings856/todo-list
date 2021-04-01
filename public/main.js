@@ -10,7 +10,7 @@ Array.from(deleted).forEach((element) => {
 })
 
 async function updateComplete(){
-  const todoName = this.parentNode.innerText
+  const todoName = this.parentNode.childNodes[1].innerText
   console.log(todoName)
 
   try{
@@ -30,7 +30,7 @@ async function updateComplete(){
 }
 
 async function removeTodo(){
-  const todoName = this.parentNode.innerText
+  const todoName = this.parentNode.childNodes[1].innerText
   
   try{
     const response = await fetch('deleteTodo', {
