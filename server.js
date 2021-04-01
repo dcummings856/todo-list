@@ -51,8 +51,17 @@ true })
     })
     .catch(error => console.error(error))
   })
+
+  app.delete('/deleteTodo', (request, response) => {
+    db.collection('todos').deleteOne({todos: request.body.todosX})
+    .then(result => {
+      console.log('todo deleted')
+      response.json('todo deleted')
+    })
+    .catch(error => console.error(error))
+  })
   
-  app.listen(PORT, () => {
+  app.listen(process.env.PORT || PORT, () => {
     console.log(`Listening on ${PORT}`)
   })
 

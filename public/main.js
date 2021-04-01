@@ -30,5 +30,20 @@ async function updateComplete(){
 }
 
 async function removeTodo(){
+  const todoName = this.parentNode.innerText
   
+  try{
+    const response = await fetch('deleteTodo', {
+      method: 'delete',
+      headers: {'Content-type': 'application/json'},
+      body: JSON.stringify({
+        'todosX': todoName
+      })
+    })
+    const data = await response.json()
+    console.log(data)
+    location.reload()
+  }catch(err){
+    console.log(err)
+  }
 }
