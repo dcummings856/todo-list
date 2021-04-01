@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDo List</title>
+</head>
+<body>
+  <h1>ToDo List</h1>
+
+  <form action='/todos' method="POST">
+    <input type="text" placeholder="todos" name="todos">
+    <button class='add' type="submit">Add</button>
+  </form>
+
+  <h2 class="todos-h2">ToDos</h2>
+
+  <ul class="todos-list">
+    <% for(let i = 0; i < todos.length; i++) {%>
+      <li class='todo'>
+        <span><%= todos[i].todos %></span>
+        <button class='complete'>Complete</button>
+        <button class='delete'>Delete</button>
+      </li>
+    <% }  %>
+  </ul>
+
+  <h2 class='complete-h2'>Completed ToDos</h2>
+
+
+
+  <script src='/main.js'></script>
+</body>
+</html>
